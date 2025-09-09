@@ -1,0 +1,35 @@
+import java.math.BigDecimal;
+import java.util.Scanner;
+
+public class PromocaoRelampago {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String valorCompra = scanner.nextLine();
+        System.out.println(calcularDesconto(valorCompra));
+        scanner.close();
+    }
+
+    public static String calcularDesconto(String valorCompra) {
+        BigDecimal valor = new BigDecimal(valorCompra);
+        BigDecimal descontoPercentual;
+        BigDecimal menorValor = new BigDecimal("50.00");
+        BigDecimal maiorValor = new BigDecimal("100.00");
+        
+       
+        if(valor.compareTo(menorValor) < 0)
+        {
+          descontoPercentual = new BigDecimal("0");
+        }
+        else if(valor.compareTo(menorValor) >= 0 && valor.compareTo(maiorValor) <= 0)
+        {
+          descontoPercentual = new BigDecimal("10");
+        }
+        else {
+          descontoPercentual = new BigDecimal("20");
+        }
+        
+      
+      return "Desconto de "+ descontoPercentual + "%";
+    }
+}
